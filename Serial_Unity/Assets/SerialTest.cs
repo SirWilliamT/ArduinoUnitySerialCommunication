@@ -61,8 +61,14 @@ public class SerialTest : MonoBehaviour
 
     public void RefreshPortsDropdown()
     {
+        // Remove all the previous options
+        PortsDropdown.ClearOptions();
+
+        // Get port names
         string[] portNames = SerialPort.GetPortNames();
         _ports = portNames.ToList();
+
+        // Add the port names to our options
         PortsDropdown.AddOptions(_ports);
     }
 
